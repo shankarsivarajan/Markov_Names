@@ -1,4 +1,4 @@
-## Names
+## Markov Names
 
 This is a simple little Markov-chain based name generator suitable for tabletop RPGs or procedural-content computer games.
 
