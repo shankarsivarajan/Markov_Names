@@ -59,7 +59,7 @@ class MarkovChainNamer( object ):
     def next( self, setname, current ):
         if not current:
             return "^"
-        k = unicode(current)
+        k = current
         while True:
             if k:
                 if (setname,k) in self.chains:
@@ -84,12 +84,12 @@ class MarkovChainNamer( object ):
 
 
     def load_dataset_file( self, setname, filepath ):
-        names = [line.strip() for line in open(filepath,'rt').readlines()]
+        with open(filepath,'rt', encoding='utf8') as file:
+            names = [line.strip() for line in file.readlines()]
         for name in names:
             if name.startswith('#'):
                 continue
             # Keep everything as unicode internally
-            name = name.decode('utf-8')
             self.load_chains( setname, name )
             self.load_chains( "all", name )
 
@@ -102,7 +102,7 @@ class MarkovChainNamer( object ):
             if os.path.exists(path):
                 self.load_dataset_file( setname, path )
             else:
-                print "Error: name data file '%s' not found."%(path)
+                print(f"Error: name data file {path} not found.")
                 sys.exit(-1)
             
     def load_all_name_data(self):
@@ -168,7 +168,7 @@ def gen_star_name( options = defaults ):
     rankname = GREEK_ALPHABET[ rank % 24 ]
 
     # for example, "Epsilon Athanatille"
-    return "%s %s"%(rankname,constellation)
+    return f"{rankname} {constellation}"
 
 
 # Generate a "full name" given a sequence
@@ -186,12 +186,12 @@ def gen_name( setname, options = defaults ):
 
 def tests():
     # Generate a star name.
-    print gen_star_name()
+    print(gen_star_name())
 
     # Generate an individual person's full name - in this case, a pseudo-French woman
     # with a quasi-Japanese father, whose mother read a lot of fantasy novels.
     # example result: Jestée Lyona Harasahiro
-    print gen_names( ["frenchf","arthurianf","japansur"] )
+    print(gen_names( ["frenchf","arthurianf","japansur"]))
 
     # Produce several pages of names for your RPG setting - print 'em out, and
     # when you introduce an NPC, pick a name off an appropriate list and cross it off.
@@ -202,12 +202,12 @@ def tests():
                 ("Other", ["all"] ) ]
 
     for group,setnames in groups:
-        print "%s Names"%group
+        print(f"{group} Names")
         for name in range(3):
             col1 = gen_name( random.choice(setnames) )
             col2 = gen_name( random.choice(setnames) )
             col3 = gen_name( random.choice(setnames) )
-            print "  %15s %15s %15s"%(col1,col2,col3)
+            print (f"{col1} {col2} {col3}")
         print
 
 if __name__ == "__main__":
@@ -233,4 +233,4 @@ if __name__ == "__main__":
         results = [ gen_name( random.choice( sets ), options ) for _ in range( options.count ) ]
 
     for result in results:
-        print result
+        print(result)
