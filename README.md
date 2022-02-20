@@ -96,40 +96,39 @@ first time you use a given set it may pause briefly.
 
 ~~~
 : python
-Python 2.7.5 (default, Mar  9 2014, 22:15:05) 
-[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Python 3.9.9 | packaged by conda-forge | …
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import names
 ~~~
 
 To get a single name:
 ~~~
->>> print names.gen_name( 'norsem' )
+>>> print(names.gen_name( 'norsem' ))
 Þorn
 ~~~  
 
 You can do name sequences here too:
 
 ~~~
->>> print names.gen_names( ['engf','engsur'] )
+>>> print(names.gen_names( ['engf','engsur'] ))
 Lina Fitter
->>> print names.gen_names( ['frenchf','arthurianf','japansur'] )
+>>> print(names.gen_names( ['frenchf','arthurianf','japansur'] ))
 Jestée Lyona Harasahiro                                                             
 ~~~
 
 The 'all' name set works here too.
 
 ~~~
->>> print names.gen_name( 'all' )
+>>> print(names.gen_name( 'all' ))
 Lùshi 
->>> print names.gen_name( 'all' )
+>>> print(names.gen_name( 'all' ))
 Ingarriphan
 ~~~
 
 And stars.
 
 ~~~
->>> print names.gen_star_name()
+>>> print(names.gen_star_name())
 Beta Agapidus
 ~~~
 
@@ -143,7 +142,7 @@ using the same options as on the command line:
 >>> long_name.min = 20
 >>> long_name.max = 80
 >>> long_name.new = False
->>> print names.gen_name( 'engsur', long_name )
+>>> print(names.gen_name( 'engsur', long_name ))
 Browichmasstowiteraumpben
 ~~~
 
