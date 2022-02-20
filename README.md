@@ -159,22 +159,7 @@ The format is simple: white space ignored, one name per line, lines beginning wi
 
 The more names on the list, the more likely it is to successfully generate a name. 
 
-Lists which include names coming from different languages are more likely to generate unpronounceable names, because it'll be switching orthographic rules in mid-word.  
-
-These are the name data files in the current distribution:
-
-~~~
-albanianf        azerbaijanm    engm            incam           norsef
-albanianm        azerbaijansur  engsur          japanf          norsem
-albaniansur      countries      engtradenames   japanm          oldengsurnames
-arabicf          czechf         frenchf         japansur        provinces
-arabicm          czechm         frenchm         latinf          saxonf
-arthurianf       czechsur       frenchsur       latinm          saxonm
-arthurianm       engbynames     gothf           normanf         sumerianf
-asteroids        engf           gothm           normanm         sumerianm
-azerbaijanf      englocalities  incaf           normansur       swedishm 
-flowergenus      flowerspecies  
-~~~  
+Lists which include names coming from different languages are more likely to generate unpronounceable names, because it'll be switching orthographic rules in mid-word. 
 
 ### Future Work
 
